@@ -5,7 +5,7 @@
 ### 1. Colocar el wallet
 Descomprime el wallet que viene en la carpeta raíz del proyecto a:
 ```
-C:/Wallet_Futapp/
+C:/wallet/futapp/
 ```
 (O en otra ruta, pero actualiza el application.properties)
 
