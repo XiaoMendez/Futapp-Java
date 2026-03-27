@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><title>FutApp - Inicio</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+nav{background:linear-gradient(135deg,#1a2744,#0d1f3c);padding:14px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:2px solid #2a9d8f}
+nav a{color:#90caf9;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:0.88rem;transition:background 0.2s}
+nav a:hover{background:#2a9d8f;color:#fff}
+nav .brand{color:#2a9d8f;font-weight:700;font-size:1.1rem;margin-right:12px}
+.container{max-width:1100px;margin:32px auto;padding:0 20px}
+.hero{text-align:center;padding:48px 0 36px}
+.hero h1{font-size:2.5rem;color:#2a9d8f;margin-bottom:10px}
+.hero p{color:#6b7fa3;font-size:1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-top:32px}
+.card{background:#111827;border:1px solid #1e2d4a;border-radius:12px;padding:24px;text-align:center;text-decoration:none;color:#e0e6f0;transition:all 0.2s}
+.card:hover{border-color:#2a9d8f;transform:translateY(-3px);box-shadow:0 8px 24px rgba(42,157,143,0.15)}
+.card .icon{font-size:2.2rem;margin-bottom:10px}
+.card h3{font-size:1rem;color:#90caf9}
+.card p{font-size:0.8rem;color:#4a5a7b;margin-top:4px}
+</style>
+</head>
+<body>
+<nav>
+  <span class="brand">⚽ FutApp</span>
+  <a th:href="@{/}">Inicio</a>
+  <a th:href="@{/federaciones}">Federaciones</a>
+  <a th:href="@{/equipos}">Equipos</a>
+  <a th:href="@{/campeonatos}">Campeonatos</a>
+  <a th:href="@{/jugadores}">Jugadores</a>
+  <a th:href="@{/entrenadores}">Entrenadores</a>
+  <a th:href="@{/arbitros}">Árbitros</a>
+  <a th:href="@{/partidos}">Partidos</a>
+</nav>
+<div class="container">
+  <div class="hero">
+    <h1>⚽ FutApp Web</h1>
+    <p>Sistema de gestión de fútbol — Spring Boot + Thymeleaf + Oracle</p>
+  </div>
+  <div class="grid">
+    <a th:href="@{/federaciones}" class="card"><div class="icon">🏛️</div><h3>Federaciones</h3><p>Gestionar federaciones</p></a>
+    <a th:href="@{/equipos}" class="card"><div class="icon">🏟️</div><h3>Equipos</h3><p>Gestionar equipos</p></a>
+    <a th:href="@{/campeonatos}" class="card"><div class="icon">🏆</div><h3>Campeonatos</h3><p>Gestionar campeonatos</p></a>
+    <a th:href="@{/jugadores}" class="card"><div class="icon">👟</div><h3>Jugadores</h3><p>Gestionar jugadores</p></a>
+    <a th:href="@{/entrenadores}" class="card"><div class="icon">📋</div><h3>Entrenadores</h3><p>Gestionar entrenadores</p></a>
+    <a th:href="@{/arbitros}" class="card"><div class="icon">🟨</div><h3>Árbitros</h3><p>Gestionar árbitros</p></a>
+    <a th:href="@{/partidos}" class="card"><div class="icon">⚽</div><h3>Partidos</h3><p>Gestionar partidos</p></a>
+  </div>
+</div>
+</body>
+</html>

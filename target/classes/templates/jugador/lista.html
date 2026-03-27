@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Jugadores - FutApp</title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Segoe UI",sans-serif;background:#0a0e1a;color:#e0e6f0;min-height:100vh}
+nav{background:linear-gradient(135deg,#1a2744,#0d1f3c);padding:14px 28px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:2px solid #2a9d8f}
+nav a{color:#90caf9;text-decoration:none;padding:6px 14px;border-radius:6px;font-size:.88rem;transition:background .2s}
+nav a:hover{background:#2a9d8f;color:#fff}
+.brand{color:#2a9d8f;font-weight:700;font-size:1.1rem;margin-right:12px}
+.container{max-width:1100px;margin:32px auto;padding:0 20px}
+h1{font-size:1.6rem;margin-bottom:22px;color:#90caf9}
+.btn{display:inline-block;padding:8px 18px;border-radius:7px;text-decoration:none;font-size:.88rem;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:#2a9d8f;color:#fff}.btn-primary:hover{background:#21867a}
+.btn-warning{background:#e9c46a;color:#1a1a1a}.btn-warning:hover{background:#d4b455}
+.btn-danger{background:#e76f51;color:#fff}.btn-danger:hover{background:#c95a3d}
+.btn-secondary{background:#3a4a6b;color:#cdd8f0}.btn-secondary:hover{background:#4a5a7b}
+.btn-sm{padding:5px 12px;font-size:.8rem}
+table{width:100%;border-collapse:collapse;background:#111827;border-radius:10px;overflow:hidden;margin-top:16px}
+th{background:#1a2744;color:#90caf9;padding:12px 16px;text-align:left;font-size:.85rem;text-transform:uppercase;letter-spacing:.05em}
+td{padding:11px 16px;border-bottom:1px solid #1e2d4a;font-size:.9rem}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#151f35}
+.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.actions{display:flex;gap:8px;align-items:center}
+.form-wrap{max-width:640px}
+.form-card{background:#111827;border-radius:12px;padding:28px}
+.form-group{margin-bottom:18px}
+label{display:block;margin-bottom:6px;color:#90caf9;font-size:.85rem;font-weight:600}
+input,select{width:100%;padding:9px 13px;background:#1a2744;border:1px solid #2a3a5c;border-radius:7px;color:#e0e6f0;font-size:.9rem}
+input:focus,select:focus{outline:none;border-color:#2a9d8f;background:#1e2f50}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.btn-group{display:flex;gap:10px;margin-top:8px}
+.empty{text-align:center;padding:36px;color:#4a5a7b}
+</style></head>
+<body><nav><span class="brand">⚽ FutApp</span><a th:href="@{/}">Inicio</a><a th:href="@{/federaciones}">Federaciones</a><a th:href="@{/equipos}">Equipos</a><a th:href="@{/campeonatos}">Campeonatos</a><a th:href="@{/jugadores}">Jugadores</a><a th:href="@{/entrenadores}">Entrenadores</a><a th:href="@{/arbitros}">Árbitros</a><a th:href="@{/partidos}">Partidos</a></nav>
+<div class="container">
+
+<div class="top-bar">
+  <h1>👟 Jugadores</h1>
+  <a th:href="@{/jugadores/nuevo}" class="btn btn-primary">+ Nuevo Jugador</a>
+</div>
+<table>
+  <thead><tr><th>#</th><th>Nombre</th><th>Apellidos</th><th>Posición</th><th>Dorsal</th><th>Equipo</th><th>Acciones</th></tr></thead>
+  <tbody>
+    <tr th:each="j : ${jugadores}">
+      <td th:text="${j.id}"></td>
+      <td th:text="${j.nombre}"></td>
+      <td th:text="${j.apellido1 + ' ' + (j.apellido2 ?: '')}"></td>
+      <td th:text="${j.posicion}"></td>
+      <td th:text="${j.dorsal}"></td>
+      <td th:text="${j.equipo != null} ? ${j.equipo.nombre} : '-'"></td>
+      <td class="actions">
+        <a th:href="@{'/jugadores/editar/'+${j.id}}" class="btn btn-warning btn-sm">✏️ Editar</a>
+        <a th:href="@{'/jugadores/eliminar/'+${j.id}}" class="btn btn-danger btn-sm" onclick="return confirm('¿Eliminar jugador?')">🗑️ Eliminar</a>
+      </td>
+    </tr>
+    <tr th:if="${#lists.isEmpty(jugadores)}"><td colspan="7" class="empty">No hay jugadores registrados.</td></tr>
+  </tbody>
+</table>
+</div>
+</body></html>
