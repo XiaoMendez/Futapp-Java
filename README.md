@@ -3,7 +3,7 @@
 ## Pasos para correr en NetBeans
 
 ### 1. Colocar el wallet
-Descomprime el Wallet_Futapp que viene en la carpeta raíz del proyecto a:
+Descomprime el wallet que viene en la carpeta raíz del proyecto a:
 ```
 C:/Wallet_Futapp/
 ```
