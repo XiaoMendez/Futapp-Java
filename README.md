@@ -14,7 +14,7 @@ Edita `src/main/resources/application.properties`:
 ```properties
 spring.datasource.url=jdbc:oracle:thin:@futapp_high?TNS_ADMIN=C:/Wallet_Futapp
 spring.datasource.username=2021073@est.cedesdonbosco.ed.cr
-spring.datasource.password=TU_PASSWORD_REAL
+spring.datasource.password=Xmndz0608...
 ```
 
 ### 3. Abrir en NetBeans
@@ -42,7 +42,7 @@ spring.datasource.password=TU_PASSWORD_REAL
 ```
 futappweb/
 ├── pom.xml
-├── Wallet_Futapp/          ← wallet Oracle (copiar a C:/Wallet_Futapp)
+├── wallet          ← wallet Oracle (copiar a C:/Wallet_Futapp)
 ├── README.md
 └── src/main/
     ├── java/com/futapp/futappweb/
